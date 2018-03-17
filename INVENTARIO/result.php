@@ -58,24 +58,66 @@
                         </div>
                         <div class="ibox-content">
                             <?php 
+
+                            $n1= $_POST["valor1"];
+                    $n2= $_POST["valor2"];
+                  $i= $_POST["operador"];
+
+
 	if ($_POST ["valor1"] !="" and $_POST ["valor2"]!=""){
-		if ($_POST["operador"] == "suma") {
-			print ($resultado = $_POST ["valor1"] + $_POST ["valor2"]);
-			print ('<br /><a class="btn btn-primary" href="Operaciones.php">Volver</a>');
-		} elseif ($_POST["operador"] == "resta") {
-			print ($resultado = $_POST ["valor1"] - $_POST ["valor2"]);
-			print ('<br /><a class="btn btn-primary" href="Operaciones.php">Volver</a>');
-		} elseif ($_POST["operador"] == "multiplicacion") {
-			print ($resultado = $_POST ["valor1"] * $_POST ["valor2"]);
-			print ('<br /><a class="btn btn-primary" href="Operaciones.php">Volver</a>');
-		} elseif ($_POST["operador"] == "division") {
-			print ($resultado = $_POST ["valor1"] / $_POST ["valor2"]);
-			print ('<br /><a class="btn btn-primary" href="Operaciones.php">Volver</a>');
+		
+switch ($i) {
+    case '1':
+        $suma=$n1+$n2;
+                    echo "la suma de ".$n1." y ".$n2." es: ".$suma."";
+        break;
+    case '2':
+        $suma=$n1-$n2;
+                    echo "la resta de ".$n1." y ".$n2." es: ".$suma."";
+        break;
+    case '3':
+        $suma=$n1*$n2;
+                    echo "la multiplicacion de ".$n1." y ".$n2." es: ".$suma."";
+        break;
+    case '4':
+        $suma=$n1/$n2;
+                    echo "la division de ".$n1." y ".$n2." es: ".$suma."";
+        break;
+
+    
+    default:
+        echo "debe ingresar un valor valido";
+        break;
+            }
+
 		}
-	} else {
+
+                   
+
+	 else {
 		print("Ingresa los valores");
-		print ('<br /><a class="btn btn-primary" href="calculadora.php">Volver</a>');
+		print ('<br /><a class="btn btn-primary" href="Operaciones.html">Volver</a>');
 	}
+
+     echo "<br> ";
+
+                    if ($n1==$n2) {
+                        echo "los numeros ".$n1." y ".$n2." son iguales";
+                                    }
+                    elseif ($n1>$n2) {
+                        echo "el numero ".$n1." es mayor a ".$n2." ";
+                    }
+
+                    else{
+                        echo "el numero ".$n1." es menor a ".$n2." ";
+
+                    }
+                     echo "<br> ";
+                     echo "la secuencia de 1 hasta el numero de grupo que es el 3 es la siguiente: ";
+                    for ($i=1; $i <= 3; $i++) { 
+                        echo "".$i."";
+                    }
+
 ?>
                         </div>
                     </div>
