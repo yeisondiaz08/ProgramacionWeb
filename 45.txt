@@ -1,0 +1,4 @@
+Codigo 45
+Peso 54
+Marca 54
+Fabricante FG

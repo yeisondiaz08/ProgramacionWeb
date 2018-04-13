@@ -24,27 +24,26 @@
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="layouts.html"> Administración</a>
+                    <li>
+                        <a href="Home.html"> Administración</a>
                     </li>
                     
                     <li>
-                        <a href="layouts.html"> Ingreso</a>
+                        <a href="ingreso.html"> Ingreso</a>
                     </li>
                     <li >
-                        <a href="layouts.html"> Consulta</a>
+                        <a href="Consulta.html"> Consulta</a>
                     </li>
                     <li>
-                       <a href="layouts.html"> Actualización</a>
+                       <a href="actualizacion.html">Actualización</a>
                     </li>
                     <li>
-                       <a href="layouts.html"> Reportes</a>
+                       <a href="ReportesEspeciales.html">Reportes Especiales</a>
                     </li>
-                    <li>
+                    <li class="active">
                        <a href="Operaciones.html"> Operaciones</a>
                     </li>
                 </ul>
-                
             </div>
         </nav>
         </div>
@@ -57,22 +56,22 @@
                             
                         </div>
                         <div class="ibox-content">
+
+
                             <form method="post" action="result.php" class="form-horizontal">
-                                <div class="form-group"><label class="col-sm-2 control-label">Numero 1</label>
+                               <div class="row">
 
-                                    <div class="col-sm-4"><input name="valor1" type="number" class="form-control"></div>
-                                </div>
-                               
-                                <div class="form-group"><label class="col-sm-2 control-label">Numero 2</label>
-
-                                    <div class="col-sm-4"><input type="number" name="valor2" class="form-control" ></div>
-                                </div>
-
-                                <div class="form-group">
-                                	<label class="col-sm-2 control-label">Operación</label>
-
-                                    <div class="col-sm-4">
-                                    	<select class="form-control m-b" name="operador">
+                                <div class="col-sm-4 m-b-xs">
+                                        <label class="control-label">Numero 1</label>
+                                        <input name="valor1" type="number" class="form-control">
+                                    </div>
+                               <div class="col-sm-4 m-b-xs">
+                                        <label class="control-label">Numero 2</label>
+                                        <input name="valor2" type="number" class="form-control">
+                                    </div>
+                                      <div class="col-sm-4 m-b-xs">
+                                        <label class="control-label">Operaciones</label>
+                                        <select class="form-control m-b" name="operador">
                                         <option>Seleccione</option>
                                         <option value="1">Suma</option>
                                         <option value="2">Resta</option>
@@ -81,12 +80,46 @@
                                     </select>
                                     </div>
                                 </div>
-                              
-                                <div class="form-group">
-                                    <div class="col-sm-4 col-sm-offset-2">
-                                        <button class="btn btn-primary" type="submit">Calcular</button>
+
+                                 <div class="row">
+                                   <div class="col-sm-3">
+                                     
+                                         <button class="btn btn-primary" type="submit">Calcular</button>                                    
                                     </div>
+                               </div> 
+
+                            <h1>Ingrese los numeros para calcular en el arreglo</h5>
+                                <div class="row">
+                                      <div class="col-sm-4 m-b-xs">
+                                        <label class="control-label">Numero 1</label>
+                                        <input type="text" class="input-sm form-control" name="numero1">
+                                    </div>                  
+                                    <div class="col-sm-4 m-b-xs">
+                                        <label class="control-label">Numero 2</label>
+                                        <input type="number" class="input-sm form-control" name="numero2">
+                                    </div>
+                                     <div class="col-sm-4 m-b-xs">
+                                     <label class="control-label">Numero 3</label>
+                                      <input type="text" class="input-sm form-control" name="numero3">
+                                   </div>
                                 </div>
+
+                                 <div class="row">
+                                      <div class="col-sm-4 m-b-xs">
+                                        <label class="control-label">Numero 4</label>
+                                        <input type="text" class="input-sm form-control" name="numero4">
+                                    </div>                  
+                                    <div class="col-sm-4 m-b-xs">
+                                        <label class="control-label">Numero 5</label>
+                                        <input type="number" class="input-sm form-control" name="numero5">
+                                    </div>
+                                   
+                                   <div class="col-sm-3">
+                                     <br>
+                                         <button class="btn btn-primary" type="submit">Ingresar</button>                                    
+                                    </div>
+                               
+                               </div>
                             </form>
                         </div>
                     </div>

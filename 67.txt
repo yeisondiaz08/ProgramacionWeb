@@ -1,0 +1,4 @@
+Codigo 67
+Peso 900
+Marca 900
+Fabricante 900

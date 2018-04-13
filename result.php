@@ -25,20 +25,20 @@
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="layouts.html"> Administración</a>
+                        <a href="Home.html"> Administración</a>
                     </li>
                     
                     <li>
-                        <a href="layouts.html"> Ingreso</a>
-                    </li>
-                    <li >
-                        <a href="layouts.html"> Consulta</a>
+                        <a href="ingreso.html"> Ingreso</a>
                     </li>
                     <li>
-                       <a href="layouts.html"> Actualización</a>
+                        <a href="Consulta.html"> Consulta</a>
                     </li>
                     <li>
-                       <a href="layouts.html"> Reportes</a>
+                       <a href="actualizacion.html">Actualización</a>
+                    </li>
+                    <li>
+                       <a href="ReportesEspeciales.html">Reportes Especiales</a>
                     </li>
                     <li>
                        <a href="Operaciones.html"> Operaciones</a>
