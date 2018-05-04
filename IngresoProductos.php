@@ -77,11 +77,17 @@ $sql = "INSERT INTO tabla03 (codigo, nombre, marca, fabricante, peso, caracteris
 VALUES ('$codigo', '$nombre', '$marca', '$fabricante', '$peso', '$caracteristica')";
 
 if (mysqli_query($conn, $sql)) {
-    echo '<h2><div align="center">Registro Guardados con Exito!</div></h2>';
+   echo "<script>
+                               alert('Registro Actualizado con Exito');
+                             window.location= 'Ingreso.html'
+                    </script>";
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+   echo "<script>
+                               alert('Error al ingresar el producto');
+                             window.location= 'Ingreso.html'
+                    </script>";
 }
-
+/*Cerramos la conexion de la base de datos*/
 mysqli_close($conn);
 ?> 
 

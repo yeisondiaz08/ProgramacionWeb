@@ -51,11 +51,14 @@
        
 
  <?php
+
+ /*Parametros de conexcion a la base de datos*/
 $servername = "localhost";
 $username = "root";
 $password = "12345678";
 $dbname = "bdunad03";
 
+ /*Asignamos los datos de la vista a una variable local*/
 $codigo = $_POST['txtCod'];
 $nombre = $_POST['txtNombre'];
 $marca = $_POST['txtMarca'];
@@ -67,12 +70,19 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+ /*el siguiente Query realizamos la consulta para actualizar el registro segun el codigo*/
 $sql = "UPDATE tabla03 SET nombre='$nombre', codigo='$codigo', peso='$peso', marca='$marca', fabricante='$fabricante', caracteristica='$caracteristica'  WHERE codigo='$codigo'";
 
 if (mysqli_query($conn, $sql)) {
-  echo '<h2><div align="center">La información suministrada ha sido actualizada exitosamente</div></h2>';
+  echo "<script>
+                               alert('Registro Actualizado con Exito');
+                             window.location= 'Actualizacion.html'
+                    </script>";
 } else {
-    echo "Error actualizando la información: " . mysqli_error($conn);
+    echo "<script>
+                               alert('Error al Actualizar');
+                             window.location= 'Actualizacion.html'
+                    </script>";
 }
 mysqli_close($conn);
 ?> 
