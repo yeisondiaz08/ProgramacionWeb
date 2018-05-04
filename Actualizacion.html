@@ -50,7 +50,7 @@
         </div>
         <div class="wrapper wrapper-content">
             <div class="container">
-            <form method="post" action="Productos.php" class="form-horizontal">
+            <form method="post" action="ActualizarProducto.php" class="form-horizontal">
 
                 <div class="row">
                     <div class="col-lg-12s">
@@ -59,7 +59,7 @@
                                 <div class="row">
                                       <div class="col-sm-4 m-b-xs">
                                         <label class="control-label">Codigo del Producto</label>
-                                        <input type="text" class="input-sm form-control" name="txtcodigo">
+                                        <input type="text" class="input-sm form-control" name="txtCod">
                                     </div>                  
                                     <div class="col-sm-4 m-b-xs">
                                         <label class="control-label">Peso</label>
@@ -72,8 +72,13 @@
                                 </div>
                                 
                                 <div class="row">
-                                   
-                                      <div class="col-sm-4 m-b-xs">
+                                                      
+                                  
+                                     <div class="col-sm-4 m-b-xs">
+                                     <label class="control-label">Nombre</label>
+                                      <input type="text" class="input-sm form-control" name="txtNombre">
+                                   </div>
+                                    <div class="col-sm-4 m-b-xs">
                                         <label class="control-label">Fabricante</label>
                                        <input type="text" class="input-sm form-control" name="txtFabricante">
                                     </div>   
@@ -82,16 +87,13 @@
                                     
                                       <textarea class="input-sm form-control"  name="txtCaracteristica"></textarea>
                                    </div>
-                                    <div class="col-sm-3">
-                                        <br>
-                                        <button class="btn btn-primary" type="submit">Actualizar</button>                                     
-                                    </div>
                                 </div>
                                 
-                              
-
-                           
-
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <button class="btn btn-primary" type="submit">Actualizar</button>                   
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
