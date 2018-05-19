@@ -50,32 +50,65 @@
         </div>
         <div class="wrapper wrapper-content">
             <div class="container">
-            <form method="post" action="Consulta.php" class="form-horizontal">
-
+            <form method="GET" action="eliminar.php" class="form-horizontal">
                 <div class="row">
                      <div class="col-lg-12">
                         <div class="ibox float-e-margins">
-                            <div class="ibox-content">
-                                 <div>
-                                    
-                                    <h3 class="font-bold no-margins">
-                                       Consulta
+                            <div class="ibox-content">  
+                              <h3 class="font-bold no-margins">
+                                 Resultado de Consulta
                                     </h3>
-                                </div>
-                                <br>
-                                <div class="row">
-                                     <div class="col-sm-12 m-b-xs">
-                                        <label class="control-label">Codigo del Producto</label>
-                                        <input type="text" class="input-sm form-control" name="txtcodigo">
-                                         <br>   
-                                         <button class="btn btn-primary" type="submit">Buscar</button>
-                                    </div>
-                                        
-                                </div>
+
+                            <?php
+							$servername = "localhost";
+							$username = "root";
+							$password = "12345678";
+							$dbname = "bdunad03";
+							$id = $_POST['txtcodigo'];
+
+							// Create connection
+							$conn = mysqli_connect($servername, $username, $password, $dbname);
+							// Check connection
+							if (!$conn) {
+							die("Connection failed: " . mysqli_connect_error());
+							}
+							$sql = "SELECT codigo, nombre, peso, marca, fabricante, caracteristica  FROM tabla03 WHERE codigo=$id";
+							$result = mysqli_query($conn, $sql);
+							?> 
+							<table class="table table-striped">
+  	
+							<thead>
+							<tr>
+								<th>ID</th>
+								<th>NOMBRE</th>
+								<th>PESO</th>
+                                <th>MARCA</th>
+                                <th>FABRICANTE</th>
+                                <th>CARACTERISTICA</th>
+								<th>Eliminar</th>
+                                
+                                <th></th>
+							</tr>
+							</thead>
+
+							<?php while($row = mysqli_fetch_assoc($result)){  
+							 ?> 
+							<tr>
+                                <td><?php echo $row['codigo'] ?></td>
+							    <td><?php echo $row['nombre'] ?></td>
+							    <td><?php echo $row['peso'] ?></td>
+                                <td><?php echo $row['marca'] ?></td>
+                                <td><?php echo $row['fabricante'] ?></td>
+                                <td><?php echo $row['caracteristica'] ?></td>
+                                <?php echo "<td> <a href='eliminar.php?no=".$row['codigo']."'> <button type='button' class='btn btn-danger' onclick='return confirm('Desea eliminar el Registro?')>Eliminar</button> </a> </td>" ?>
+							 </tr>
+							<?php
+								}
+							?>
+                               </table>
                             </div>
                         </div>
                     </div>
-                  
                 </div>
 
                </form> 
@@ -83,6 +116,7 @@
             </div>
 
         </div>
+
         <div class="footer">
             <div class="pull-right">
                 10GB of <strong>250GB</strong> Free.
@@ -113,4 +147,4 @@
 
 </body>
 
-</html>
+</html> 

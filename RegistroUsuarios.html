@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet"/>
  
     <link href="css/style.css" rel="stylesheet"/>
     <link href="css/Estilo.css" rel="stylesheet" />
-	<title>Gestion de Inventatio</title>
+    <title>Gestion de Inventatio</title>
 </head>
 <body class="top-navigation">
 
@@ -28,10 +28,10 @@
                         <a href="Home.html"> Administración</a>
                     </li>
                     
-                    <li>
+                    <li class="active">
                         <a href="ingreso.html"> Ingreso</a>
                     </li>
-                    <li class="active">
+                    <li >
                         <a href="Consulta.html"> Consulta</a>
                     </li>
                     <li>
@@ -50,27 +50,31 @@
         </div>
         <div class="wrapper wrapper-content">
             <div class="container">
-            <form method="post" action="Consulta.php" class="form-horizontal">
+            <form method="post" action="RegistroUsuario.php" class="form-horizontal">
 
                 <div class="row">
-                     <div class="col-lg-12">
+                    <div class="col-lg-12s">
                         <div class="ibox float-e-margins">
                             <div class="ibox-content">
-                                 <div>
-                                    
-                                    <h3 class="font-bold no-margins">
-                                       Consulta
-                                    </h3>
-                                </div>
-                                <br>
                                 <div class="row">
-                                     <div class="col-sm-12 m-b-xs">
-                                        <label class="control-label">Codigo del Producto</label>
-                                        <input type="text" class="input-sm form-control" name="txtcodigo">
-                                         <br>   
-                                         <button class="btn btn-primary" type="submit">Buscar</button>
+                                      <div class="col-sm-4 m-b-xs">
+                                        <label class="control-label">Nombre de Usuario</label>
+                                        <input type="text" class="input-sm form-control" name="txtNombreUsuario">
+                                    </div>                  
+                                    <div class="col-sm-4 m-b-xs">
+                                        <label class="control-label">Contraseña</label>
+                                        <input type="password" class="input-sm form-control" name="txtPassword">
                                     </div>
-                                        
+                                     
+                                </div>
+                                
+                                
+                                <div class="row">
+                                   
+                                     
+                                    <div class="col-sm-3">
+                                        <button class="btn btn-primary" type="submit">Guardar</button>                           
+                                    </div>
                                 </div>
                             </div>
                         </div>

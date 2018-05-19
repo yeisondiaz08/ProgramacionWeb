@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet"/>
  
     <link href="css/style.css" rel="stylesheet"/>
     <link href="css/Estilo.css" rel="stylesheet" />
-	<title>Gestion de Inventatio</title>
+  <title>Gestion de Inventatio</title>
 </head>
 <body class="top-navigation">
 
@@ -28,10 +28,10 @@
                         <a href="Home.html"> Administración</a>
                     </li>
                     
-                    <li>
+                    <li class="active">
                         <a href="ingreso.html"> Ingreso</a>
                     </li>
-                    <li class="active">
+                    <li >
                         <a href="Consulta.html"> Consulta</a>
                     </li>
                     <li>
@@ -48,41 +48,39 @@
             </div>
         </nav>
         </div>
-        <div class="wrapper wrapper-content">
-            <div class="container">
-            <form method="post" action="Consulta.php" class="form-horizontal">
+       
 
-                <div class="row">
-                     <div class="col-lg-12">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-content">
-                                 <div>
-                                    
-                                    <h3 class="font-bold no-margins">
-                                       Consulta
-                                    </h3>
-                                </div>
-                                <br>
-                                <div class="row">
-                                     <div class="col-sm-12 m-b-xs">
-                                        <label class="control-label">Codigo del Producto</label>
-                                        <input type="text" class="input-sm form-control" name="txtcodigo">
-                                         <br>   
-                                         <button class="btn btn-primary" type="submit">Buscar</button>
-                                    </div>
-                                        
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  
-                </div>
+ <?php
 
-               </form> 
+ /*Parametros de conexcion a la base de datos*/
+$servername = "localhost";
+$username = "root";
+$password = "12345678";
+$dbname = "bdunad03";
 
-            </div>
+ /*Asignamos los datos de la vista a una variable local*/
+$NombreUsuario = $_POST['txtNombreUsuario'];
+$Password = md5($_POST['txtPassword']);
+$estado = '0';
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+ /*el siguiente Query realizamos la consulta para actualizar el registro segun el codigo*/
+$sql = "INSERT INTO usuarios (nombre_usuario, contrasena_usuario, estado_usuario)
+VALUES ('$NombreUsuario', '$Password', '$estado')";
 
-        </div>
+if (mysqli_query($conn, $sql)) {
+  echo "<script>
+                               alert('Registro Guardado con Exito');
+                             window.location= 'RegistroUsuarios.html'
+                    </script>";
+} else {
+   
+}
+mysqli_close($conn);
+?> 
+
         <div class="footer">
             <div class="pull-right">
                 10GB of <strong>250GB</strong> Free.
@@ -105,7 +103,8 @@
     <script src="js/plugins/pace/pace.min.js"></script>
 
     <!-- Flot -->
-    <script src="js/plugins/flot/jquery.flot.js"></script>
+    <script src="js/plugins/flot/jquery.flot.js"></sc
+    ript>
     <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
     <script src="js/plugins/flot/jquery.flot.resize.js"></script>
 
@@ -114,3 +113,4 @@
 </body>
 
 </html>
+-mmmmmmmmm
