@@ -1,4 +1,21 @@
-<!DOCTYPE html>
+<?php
+        session_start();
+        $tiempo = $_SESSION["tiempo"] + 600;
+  
+            if ($tiempo <= time()) {
+
+                 
+                 session_destroy();
+                    echo "<script>
+                               
+                             window.location= 'Login.html'
+                    </script>";
+            }
+
+            else
+            {
+                ?> 
+        <!DOCTYPE html>
 <html>
 <head>
      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -31,7 +48,7 @@
                     <li>
                         <a href="ingreso.html"> Ingreso</a>
                     </li>
-                    <li >
+                    <li class="active">
                         <a href="Consulta.html"> Consulta</a>
                     </li>
                     <li>
@@ -43,20 +60,28 @@
                     <li>
                        <a href="Operaciones.html"> Operaciones</a>
                     </li>
-                    <li class="active">
+                    <li>
                        <a href="RegistroUsuarios.html"> R. Usuarios</a>
                     </li>
                 </ul>
-                
+               
+
+               <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                   <a href="Salir.php">
+                            <i class="fa fa-sign-out"></i> <?php echo "Bienvenido " .  $_SESSION["nomusu"] ?>
+                        </a> 
+                    </li>
+                </ul> 
             </div>
         </nav>
         </div>
-        <div class="wrapper wrapper-content">
-            <div class="container">
-            <form method="post" action="RegistroUsuario.php" class="form-horizontal">
 
-                <div class="row">
-                    <div class="col-lg-12s">
+        <div class="wrapper wrapper-content">
+             <form method="POST" action="usuario.php" class="form-horizontal">
+                <div class="container">
+                                <div class="row">
+                    <div class="col-lg-12">
                         <div class="ibox float-e-margins">
                             <div class="ibox-content">
                                 <div class="row">
@@ -84,12 +109,75 @@
                     </div>
                   
                 </div>
+                </div>
+
+             </form>
+            <div class="container">
+
+
+            <form method="GET" action="EliminarUsuario.php" class="form-horizontal">
+                <div class="row">
+                     <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-content">  
+                              <h3 class="font-bold no-margins">
+                                 Usuarios Registrados
+                                    </h3>
+
+                            <?php
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "12345678";
+                            $dbname = "bdunad03";
+
+                            // Create connection
+                            $conn = mysqli_connect($servername, $username, $password, $dbname);
+                            // Check connection
+                            if (!$conn) {
+                            die("Connection failed: " . mysqli_connect_error());
+                            }
+                            $sql = "SELECT * FROM usuarios";
+                            $result = mysqli_query($conn, $sql);
+                            ?> 
+                            <table class="table table-striped">
+    
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NOMBRE</th>
+                                <th>Estado</th>
+                                <th>Eliminar</th>
+                                <th>Actualizar</th>
+                            </tr>
+                            </thead>
+
+                            <?php while($row = mysqli_fetch_assoc($result)){  
+                             ?> 
+                            <tr>
+                                <td><?php echo $row['codigo_usuarios'] ?></td>
+                                <td><?php echo $row['nombre_usuario'] ?></td>
+                                <td><?php echo $row['estado_usuario'] ?></td>
+                               
+                                <?php echo "<td> <a href='EliminarUsuario.php?no=".$row['codigo_usuarios']."'> <button type='button' class='btn btn-danger' onclick='return confirm('Desea eliminar el Registro?')>Eliminar</button> </a> </td>" ?>
+                                <?php echo "<td> <a href='UpdateUsuario.php?no=".$row['codigo_usuarios']."'> <button type='button' class='btn btn-primary'>Actualizar</button> </a> </td>" ?>
+                             </tr>
+                            <?php
+                                }
+                            ?>
+                               </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                </form> 
 
             </div>
 
         </div>
+
+
+
         <div class="footer">
             <div class="pull-right">
                 10GB of <strong>250GB</strong> Free.
@@ -120,4 +208,11 @@
 
 </body>
 
-</html>
+</html> 
+
+
+
+                <?php
+              
+            }                          
+?> 

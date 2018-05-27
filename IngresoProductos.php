@@ -43,6 +43,9 @@
                     <li>
                        <a href="Operaciones.html"> Operaciones</a>
                     </li>
+                    <li>
+                       <a href="RegistroUsuarios.html"> R. Usuarios</a>
+                    </li>
                 </ul>
                 
             </div>

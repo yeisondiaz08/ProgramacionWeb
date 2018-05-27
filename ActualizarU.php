@@ -28,7 +28,7 @@
                         <a href="Home.html"> Administración</a>
                     </li>
                     
-                    <li>
+                    <li class="active">
                         <a href="ingreso.html"> Ingreso</a>
                     </li>
                     <li >
@@ -43,17 +43,24 @@
                     <li>
                        <a href="Operaciones.html"> Operaciones</a>
                     </li>
-                    <li class="active">
+                    <li>
                        <a href="RegistroUsuarios.html"> R. Usuarios</a>
                     </li>
                 </ul>
-                 
+             <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                   <a href="Salir.php">
+                            <i class="fa fa-sign-out"></i> <?php session_start(); echo "Bienvenido " .  $_SESSION["nomusu"] ?>
+                        </a> 
+                    </li>
+                </ul>    
             </div>
         </nav>
         </div>
        
 
  <?php
+
  /*Parametros de conexcion a la base de datos*/
 $servername = "localhost";
 $username = "root";
@@ -61,28 +68,31 @@ $password = "12345678";
 $dbname = "bdunad03";
 
  /*Asignamos los datos de la vista a una variable local*/
-$NombreUsuario = $_POST['txtNombreUsuario'];
-$Password = md5($_POST['txtPassword']);
-$estado = '0';
+$codigo = $_POST['txtCod'];
+$nombre = $_POST['txtNombreUsuario'];
+$pass = md5($_POST['txtPassword']);
+$estad = $_POST['txtEstado'];
+
+
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
  /*el siguiente Query realizamos la consulta para actualizar el registro segun el codigo*/
-$sql = "INSERT INTO usuarios (nombre_usuario, contrasena_usuario, estado_usuario)
-VALUES ('$NombreUsuario', '$Password', '$estado')";
+echo $sql = "UPDATE usuarios SET nombre_usuario='$nombre', estado_usuario='$estad', contrasena_usuario='$pass' WHERE codigo_usuarios='$codigo'";
 
 if (mysqli_query($conn, $sql)) {
   echo "<script>
-                               alert('Registro Guardado con Exito');
-                             window.location= 'RegistroUsuarios.html'
+                               alert('Registro Actualizado con Exito');
+                             window.location= 'administrador.php'
                     </script>";
 } else {
-     echo "<script>
-                               alert('Error al guardar');
-                             window.location= 'RegistroUsuarios.html'
+    echo "<script>
+                               alert('Error al Actualizar');
+                             window.location= 'administrador.php'
                     </script>";
 }
+
 mysqli_close($conn);
 ?> 
 
